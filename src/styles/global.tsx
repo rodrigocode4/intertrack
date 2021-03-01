@@ -50,6 +50,19 @@ const GlobalStyle = createGlobalStyle`
   }
   * {
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  body {
+    --bg-primary: #EFECE4;
+    --bg-secondary: #D6B08A;
+    --bg-plate-primary: #D5D5D5;
+    --bg-plate-secondary: #9E9E9E;
+    --text-plate-secondary: rgba(32, 50, 93, 0.23);
+    --text-plate: #20325D;
+    --text-primary: #EFECE4;
+    --text-primary-placeholder:  rgba(239, 236, 228, 0.5);
+    --text-secondary: #6C6965;
+    --text-tertiary: #AE9EAE;
   }
   `
 
