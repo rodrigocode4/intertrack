@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const PlateWrapper = styled.div`
   width: 18.0625rem;
   height: 7.4375rem;
+  border-radius: 0.625rem;
   display: flex;
   flex-direction: column;
   align-items: center;
