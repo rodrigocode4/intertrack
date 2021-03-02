@@ -13,14 +13,14 @@ export const WrapperTripItem = styled.div`
 
 export const Distance = styled.h2`
   font-family: Roboto;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1.125rem;
   color: var(--text-primary);
 `
 
 export const TimeOfTravel = styled.h2`
   font-family: Roboto;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1rem;
   color: var(--text-primary);
 `
