@@ -6,7 +6,7 @@ export const WrapperTripItem = styled.div`
   background-color: var(--bg-secondary);
   box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   border-radius: 0.625rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   margin-bottom: 1.2rem;
   padding: 1.5625rem 1.5625rem 0.9375rem 1.5625rem;
 `

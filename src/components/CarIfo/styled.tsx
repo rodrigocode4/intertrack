@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const WrapperCarIfo = styled.section`
   width: 18.25rem;
   height: 6.9rem;
+  margin: 1.875rem 0 1.875rem 0;
   font-family: Roboto;
   color: var(--text-secondary);
   text-align: center;
