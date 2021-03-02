@@ -1,11 +1,12 @@
 import React from 'react'
 import * as S from './styled'
+type Props = S.PlateWrapperProps & S.ValuePlate
 
-const Plate = () => {
+const Plate: React.FC<Props> = ({ width, heigth, fontSize }) => {
   return (
-    <S.PlateWrapper>
-      <S.Stripe />
-      <S.Value>XYZ-1234</S.Value>
+    <S.PlateWrapper width={width} heigth={heigth}>
+      <S.Stripe width={width} heigth={heigth} />
+      <S.ValuePlate fontSize={fontSize}>XYZ-1234</S.ValuePlate>
     </S.PlateWrapper>
   )
 }
