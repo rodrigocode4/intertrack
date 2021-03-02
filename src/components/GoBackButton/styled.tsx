@@ -6,8 +6,8 @@ export const Button = styled.button`
   align-items: center;
   justify-content: space-around;
   position: absolute;
-  top: 2rem;
-  left: 1.375rem;
+  top: 0.8rem;
+  left: 0.2rem;
   width: 4.1rem;
   padding: 0;
   background-color: transparent;
