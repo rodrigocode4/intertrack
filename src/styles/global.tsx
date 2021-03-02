@@ -30,9 +30,6 @@ const GlobalStyle = createGlobalStyle`
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
-  body {
-    line-height: 1;
-  }
   ol, ul {
     list-style: none;
   }
@@ -48,10 +45,6 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  * {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-  }
   body {
     --bg-primary: #EFECE4;
     --bg-secondary: #D6B08A;
@@ -63,7 +56,14 @@ const GlobalStyle = createGlobalStyle`
     --text-primary-placeholder:  rgba(239, 236, 228, 0.5);
     --text-secondary: #6C6965;
     --text-tertiary: #AE9EAE;
+    line-height: 1;
+    display: block;
+    background-color: var(--bg-primary);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
   }
+
   `
 
 export default GlobalStyle
