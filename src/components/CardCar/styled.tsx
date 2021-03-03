@@ -1,4 +1,10 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
+export const WrapperLinkedCardCar = styled(Link)`
+  text-decoration: none;
+  border-radius: 0.625rem;
+`
 
 export const WrapperCardCar = styled.div`
   width: 18.0625rem;
