@@ -16,7 +16,7 @@ const Routes = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/:id(\d+)">
+        <Route path="/:id(\d+)/positions">
           <Vehicle />
         </Route>
         <Route>

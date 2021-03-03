@@ -10,7 +10,7 @@ type Props = {
 
 const CardCar: React.FC<Props> = ({ vehicleId, brand, model, description }) => {
   return (
-    <S.WrapperLinkedCardCar to={`${vehicleId}`}>
+    <S.WrapperLinkedCardCar to={`${vehicleId}/positions`}>
       <S.WrapperCardCar>
         <S.CarBrand>{brand}</S.CarBrand>
         <S.CarModel>{model}</S.CarModel>
