@@ -72,6 +72,7 @@ const Home = () => {
       <S.Main>
         {(vehicle && (
           <CardCar
+            vehicleId={vehicle.id}
             brand={vehicle.brand}
             model={vehicle.model}
             description={vehicle.description}
