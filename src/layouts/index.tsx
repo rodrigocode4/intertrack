@@ -1,13 +1,11 @@
 import React from 'react'
 import * as S from './styled'
-import Home from 'pages/Home'
 
-const Layout = () => {
-  return (
-    <S.LayoutWaraper>
-      <Home />
-    </S.LayoutWaraper>
-  )
+type Props = {
+  children: React.ReactChild
+}
+const Layout: React.FC<Props> = ({ children }) => {
+  return <S.LayoutWaraper>{children}</S.LayoutWaraper>
 }
 
 export default Layout
