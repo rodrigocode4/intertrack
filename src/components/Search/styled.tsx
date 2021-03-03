@@ -14,7 +14,8 @@ export const SearchInput = styled.input`
   width: 83%;
   height: inherit;
   border-radius: 0.625rem 0 0 0.625rem;
-  padding-left: 1.25rem;
+  padding: 0 0 0 1.25rem;
+  border: none;
   font-size: 1.375rem;
   background-color: transparent;
   border: none;
