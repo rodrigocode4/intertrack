@@ -45,9 +45,12 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const { REACT_APP_API_URL } = process.env
-      const rs = await fetch(REACT_APP_API_URL || '')
-      const data = await rs.json()
-      setListVehicles(data)
+      if (REACT_APP_API_URL) {
+        const rs = await fetch(REACT_APP_API_URL)
+        const data = await rs.json()
+
+        setListVehicles(data)
+      }
     } catch (error) {
       console.error(error)
     }
@@ -58,8 +61,10 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    const queryValue = new URLSearchParams(search).get('q')?.trim() || ''
-    setVehicleState(queryValue)
+    const queryValue = new URLSearchParams(search).get('q')?.trim()
+    if (queryValue != undefined && queryValue !== '') {
+      setVehicleState(queryValue)
+    }
   }, [search, setVehicleState])
 
   return (

@@ -2,6 +2,7 @@
   "name": "intertack",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://www15.itrack.com.br/recruitmentpositionapi/",
   "dependencies": {
     "@styled-icons/heroicons-outline": "^10.19.0",
     "react": "^17.0.1",
