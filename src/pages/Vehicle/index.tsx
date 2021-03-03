@@ -6,7 +6,7 @@ import TripList from 'components/TripList'
 import GoBackButton from 'components/GoBackButton'
 import CarIfo from 'components/CarIfo'
 
-const Home = () => {
+const Vehicle = () => {
   return (
     <>
       <S.Header>
@@ -30,4 +30,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Vehicle
