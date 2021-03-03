@@ -4,17 +4,15 @@ import * as S from './styled'
 type Props = {
   brand: string
   model: string
-  ignition: boolean
   description: string
 }
 
-const CarIfo: React.FC<Props> = ({ brand, model, ignition, description }) => {
+const CarIfo: React.FC<Props> = ({ brand, model, description }) => {
   return (
     <S.WrapperCarIfo>
       <S.BrandAndModel>
         {brand}, {model}
       </S.BrandAndModel>
-      <S.Ignition>Ignição {ignition ? 'ligada' : 'desligada'}</S.Ignition>
       <S.Description>{description}</S.Description>
     </S.WrapperCarIfo>
   )

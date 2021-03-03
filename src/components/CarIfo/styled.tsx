@@ -16,10 +16,6 @@ export const BrandAndModel = styled.h1`
   font-size: 1.75rem;
 `
 
-export const Ignition = styled.h2`
-  font-size: 1.5rem;
-`
-
 export const Description = styled.h3`
   font-size: 1.25rem;
 `
