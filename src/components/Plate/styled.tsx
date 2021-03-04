@@ -27,11 +27,12 @@ export const Stripe = styled.div<StripeProps>`
   box-shadow: inset 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 `
 
-export type ValuePlate = { fontSize?: REM }
+export type ValuePlate = { fontSize?: REM; isFilled?: boolean }
 export const ValuePlate = styled.h1<ValuePlate>`
   background-color: transparent;
   font-size: ${({ fontSize = 3 }) => `${fontSize}rem`};
   margin-top: 0.625rem;
   font-family: Roboto;
-  color: var(--text-plate-secondary);
+  color: ${({ isFilled }) =>
+    `var(${isFilled ? '--text-plate' : '--text-plate-secondary'})}`};
 `

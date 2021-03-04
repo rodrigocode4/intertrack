@@ -7,10 +7,12 @@ import React, {
 } from 'react'
 import * as S from './styled'
 import { useHistory } from 'react-router-dom'
+import { usePlate } from 'utils/context'
 
 const Search = () => {
   const history = useHistory()
   const [plateNumber, setPlateNumber] = useState('')
+  const { setPlate } = usePlate()
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
@@ -21,10 +23,14 @@ const Search = () => {
     }
   }
 
-  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value.toUpperCase().trim()
-    setPlateNumber(value)
-  }, [])
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value.toUpperCase().trim()
+      setPlateNumber(value)
+      setPlate(value)
+    },
+    [setPlate]
+  )
 
   useEffect(() => {
     const plateNumber =
