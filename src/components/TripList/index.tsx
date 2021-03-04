@@ -28,20 +28,22 @@ const TripList: React.FC<Props> = ({ positions }) => {
 
   return (
     <>
-      <S.UL>
-        {trips?.map((trip: Array<Position>, index) => {
-          const firstPosition: Position = trip[0]
-          const lastPosision: Position = trip[trip.length - 1]
-          return (
-            <S.LI key={index}>
-              <TripItem
-                firstPosition={firstPosition}
-                lastPosision={lastPosision}
-              />
-            </S.LI>
-          )
-        })}
-      </S.UL>
+      {positions.length == 0 ? null : (
+        <S.UL>
+          {trips?.map((trip: Array<Position>, index) => {
+            const firstPosition: Position = trip[0]
+            const lastPosision: Position = trip[trip.length - 1]
+            return (
+              <S.LI key={index}>
+                <TripItem
+                  firstPosition={firstPosition}
+                  lastPosision={lastPosision}
+                />
+              </S.LI>
+            )
+          })}
+        </S.UL>
+      )}
     </>
   )
 }
