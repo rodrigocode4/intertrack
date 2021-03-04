@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styled'
 import Plate from 'components/Plate'
 import Footer from 'components/Footer'
@@ -6,24 +6,74 @@ import TripList from 'components/TripList'
 import GoBackButton from 'components/GoBackButton'
 import CarIfo from 'components/CarIfo'
 
+import { useParams, useLocation } from 'react-router-dom'
+
+type PositionsType = {
+  address: string
+  datetime: number
+  hodometro: number
+  id: number
+  ignition: boolean
+  latitude: number
+  longitude: number
+  vehicleId: number
+}
+
+type VehicleType = {
+  id: number
+  name: string
+  description: string
+  brand: string
+  model: string
+}
+
 const Vehicle = () => {
+  const params = useParams() as { id: string }
+  const { pathname } = useLocation()
+  const [vehicle, setVehicle] = useState<VehicleType>()
+  const [positions, setPositions] = useState<Array<PositionsType>>()
+
+  const fetchData = async () => {
+    try {
+      const { REACT_APP_API_URL } = process.env
+      if (REACT_APP_API_URL) {
+        // TODO - compor em duas funções
+        const positionsRS = await fetch(`${REACT_APP_API_URL}${pathname}`)
+        const positionsJSON = (await positionsRS.json()) as Array<PositionsType>
+        setPositions(positionsJSON)
+
+        const vehicleRS = await fetch(`${REACT_APP_API_URL}/${params.id}`)
+        const vehicleJSON = (await vehicleRS.json()) as VehicleType
+        setVehicle(vehicleJSON)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
       <S.Header>
         <GoBackButton />
         <Plate width={9.9375} heigth={3.75} fontSize={1.5} />
-        <CarIfo
-          brand="Volkswagen"
-          model="Gol"
-          ignition={true}
-          description="Veiculo sem posicoes com ignicao desligada"
-        />
+        {vehicle && (
+          <CarIfo
+            brand={vehicle.brand}
+            model={vehicle.model}
+            description={vehicle.description}
+          />
+        )}
         <S.WrapperTitle>
           <S.TitleTrips>Viagens</S.TitleTrips>
         </S.WrapperTitle>
       </S.Header>
       <S.Main>
-        <TripList />
+        {positions !== undefined && <TripList positions={positions} />}
       </S.Main>
       <Footer />
     </>
