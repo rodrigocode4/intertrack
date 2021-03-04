@@ -1,13 +1,17 @@
 import React from 'react'
 import * as S from './styled'
 
-const VehicleNotFound: React.FC = () => {
+type Props = {
+  message: string
+}
+
+const NotFound: React.FC<Props> = ({ message }) => {
   return (
     <S.NotFoudWrapper>
-      <S.Title>Veículo não encontrado!</S.Title>
+      <S.Title>{message}</S.Title>
       <S.Status>404</S.Status>
     </S.NotFoudWrapper>
   )
 }
 
-export default VehicleNotFound
+export default NotFound
