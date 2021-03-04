@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import * as S from './styled'
 import Plate from 'components/Plate'
 import Footer from 'components/Footer'
+import CarIfo from 'components/CarIfo'
 import TripList from 'components/TripList'
 import GoBackButton from 'components/GoBackButton'
-import CarIfo from 'components/CarIfo'
+import VehicleNotFound from 'components/VehicleNotFound'
 
 import { useParams, useLocation } from 'react-router-dom'
 
@@ -32,6 +33,7 @@ const Vehicle = () => {
   const { pathname } = useLocation()
   const [vehicle, setVehicle] = useState<VehicleType>()
   const [positions, setPositions] = useState<Array<PositionsType>>()
+  const [isNotFountVehicle, setIsNotFountVehicle] = useState(false)
 
   const fetchData = async () => {
     try {
@@ -47,7 +49,7 @@ const Vehicle = () => {
         setVehicle(vehicleJSON)
       }
     } catch (error) {
-      console.error(error)
+      setIsNotFountVehicle(true)
     }
   }
 
@@ -69,11 +71,12 @@ const Vehicle = () => {
           />
         )}
         <S.WrapperTitle>
-          <S.TitleTrips>Viagens</S.TitleTrips>
+          {!isNotFountVehicle && <S.TitleTrips>Viagens</S.TitleTrips>}
         </S.WrapperTitle>
       </S.Header>
       <S.Main>
         {positions !== undefined && <TripList positions={positions} />}
+        {isNotFountVehicle && <VehicleNotFound />}
       </S.Main>
       <Footer />
     </>
