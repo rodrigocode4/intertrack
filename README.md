@@ -2,7 +2,12 @@
 
 Aplicação Web que exibe as viagens de determinado veículo.
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FBgoknEksV3IBdqRqNTHtyB%2FIntertrack%3Fnode-id%3D48%253A4" allowfullscreen></iframe>
+<div style="display: flex; justify-content: center;">
+  <a href="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FBgoknEksV3IBdqRqNTHtyB%2FIntertrack%3Fnode-id%3D48%253A4">
+    <img src="./figma.png" alt="Imagem com inlustração das telas implementadas" style="width:600px;"/>
+  </a>
+</div>
+
 
 ---
 ### 📦 Instalar dependências
@@ -13,13 +18,19 @@ $ yarn install
 
 ### 🔨 Como usar
 
-Executa a seguir, que inicia a App no modo de desenvolvimento
+Executar a seguir, inicia a App no modo de desenvolvimento
 
 ```bash
 $ yarn start
 ```
 
-Executa a próxima compilação que cria o aplicativo para uso em produção, que exporta arquivos em uma pasta `build` para implantar
+Executar a seguir, inicia os testes da aplicação
+> OBS: _É necessário que a execução anterior para isso_
+```bash
+$ yarn cypress
+```
+
+Executar a próxima compilação,  cria o aplicativo para uso em produção, que exporta arquivos em uma pasta `build` para implantar
 
 ```bash
 $ yarn build
