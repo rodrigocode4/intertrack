@@ -5,7 +5,7 @@ import Plate from 'components/Plate'
 import Search from 'components/Search'
 import Footer from 'components/Footer'
 import CardCar from 'components/CardCar'
-import VehicleNotFound from 'components/VehicleNotFound'
+import VehicleNotFound from 'components/NotFound'
 
 import { useLocation } from 'react-router-dom'
 
@@ -83,7 +83,9 @@ const Home = () => {
             description={vehicle.description}
           />
         )) ||
-          (isNotFountVehicle && <VehicleNotFound />)}
+          (isNotFountVehicle && (
+            <VehicleNotFound message="Veículo não encontrado!" />
+          ))}
       </S.Main>
       <Footer />
     </>

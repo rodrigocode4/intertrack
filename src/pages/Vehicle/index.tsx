@@ -5,7 +5,7 @@ import Footer from 'components/Footer'
 import CarIfo from 'components/CarIfo'
 import TripList from 'components/TripList'
 import GoBackButton from 'components/GoBackButton'
-import VehicleNotFound from 'components/VehicleNotFound'
+import NotFound from 'components/NotFound'
 
 import { useParams, useLocation } from 'react-router-dom'
 
@@ -27,6 +27,9 @@ type VehicleType = {
   brand: string
   model: string
 }
+
+const VehicleNotFound = NotFound
+const TripNotFound = NotFound
 
 const Vehicle = () => {
   const params = useParams() as { id: string }
@@ -76,7 +79,12 @@ const Vehicle = () => {
       </S.Header>
       <S.Main>
         {positions !== undefined && <TripList positions={positions} />}
-        {isNotFountVehicle && <VehicleNotFound />}
+        {positions?.length == 0 && (
+          <TripNotFound message="Nenhuma viagem encontrada!" />
+        )}
+        {isNotFountVehicle && (
+          <VehicleNotFound message="Veículo não encontrado!" />
+        )}
       </S.Main>
       <Footer />
     </>
