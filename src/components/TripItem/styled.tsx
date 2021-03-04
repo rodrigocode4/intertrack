@@ -34,8 +34,26 @@ export const HR = styled.hr`
 
 export const Details = styled.details`
   color: var(--text-primary);
+  background-color: var(--text-plate-secondary);
+  border-radius: 0.625rem;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const Sumary = styled.summary`
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
   color: var(--text-primary);
+`
+
+export const Span = styled.span`
+  padding-top: 1rem;
+`
+
+export const P = styled.p`
+  margin-left: 0.5rem;
+`
+
+export const TitleTrip = styled.h1`
+  text-align: center;
 `
