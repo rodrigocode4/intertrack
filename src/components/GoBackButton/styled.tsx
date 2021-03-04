@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { ChevronLeft } from '@styled-icons/heroicons-outline/ChevronLeft'
 
 export const Button = styled.button`
@@ -16,6 +17,9 @@ export const Button = styled.button`
   color: var(--text-secondary);
   filter: drop-shadow(0rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25));
   border: none;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const Icon = styled(ChevronLeft)`
@@ -23,4 +27,8 @@ export const Icon = styled(ChevronLeft)`
   height: 1.3rem;
   stroke: var(--bg-secondary);
   stroke-width: 2;
+`
+
+export const WrapperLinkedButton = styled(Link)`
+  text-decoration: none;
 `

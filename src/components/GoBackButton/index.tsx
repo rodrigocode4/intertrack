@@ -3,10 +3,12 @@ import * as S from './styled'
 
 const GoBackButton = () => {
   return (
-    <S.Button>
-      <S.Icon />
-      <span>Voltar</span>
-    </S.Button>
+    <S.WrapperLinkedButton to="/">
+      <S.Button>
+        <S.Icon />
+        <span>Voltar</span>
+      </S.Button>
+    </S.WrapperLinkedButton>
   )
 }
 
