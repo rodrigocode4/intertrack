@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
     --text-primary: #EFECE4;
     --text-primary-placeholder:  rgba(239, 236, 228, 0.5);
     --text-secondary: #6C6965;
-    --text-tertiary: #AE9EAE;
+    --text-tertiary: #ae9e9e;
     line-height: 1;
     display: block;
     background-color: var(--bg-primary);
