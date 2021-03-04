@@ -9,7 +9,7 @@ type Props = {
 
 const CarIfo: React.FC<Props> = ({ brand, model, description }) => {
   return (
-    <S.WrapperCarIfo>
+    <S.WrapperCarIfo data-cy="car-info">
       <S.BrandAndModel>
         {brand}, {model}
       </S.BrandAndModel>

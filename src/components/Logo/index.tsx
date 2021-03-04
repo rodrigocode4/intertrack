@@ -4,7 +4,7 @@ import * as S from './styled'
 
 const Logo = () => {
   return (
-    <S.WrapperLinkedLogo to="/">
+    <S.WrapperLinkedLogo href="/">
       <S.Logo
         src={FullLogo as string}
         alt="Imagem com logo da Intertrack Tecnologia"

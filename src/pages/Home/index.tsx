@@ -74,7 +74,7 @@ const Home = () => {
         <Plate />
         <Search />
       </S.Header>
-      <S.Main>
+      <S.Main data-cy="main-home">
         {(vehicle && (
           <CardCar
             vehicleId={vehicle.id}

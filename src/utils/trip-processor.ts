@@ -1,4 +1,4 @@
-type LocType = {
+type PositionType = {
   id: number
   vehicleId: number
   datetime: number
@@ -9,9 +9,9 @@ type LocType = {
   hodometro: number
 }
 
-export const getTrip = (tripRegister: Array<LocType>) => {
-  const trips: Array<Array<LocType>> = []
-  const tripTemp: Array<LocType> = []
+export const getTrip = (tripRegister: Array<PositionType>) => {
+  const trips: Array<Array<PositionType>> = []
+  const tripTemp: Array<PositionType> = []
 
   if (tripRegister.length === 0) return [tripRegister]
 
@@ -30,7 +30,7 @@ export const getTrip = (tripRegister: Array<LocType>) => {
 
       const a = trips[lastTripIndex].findIndex((el) => el.ignition == true)
       const b = trips[lastTripIndex].findIndex((el) => el.ignition == false)
-      const lastTrips = trips.pop() as Array<LocType>
+      const lastTrips = trips.pop() as Array<PositionType>
 
       if (a === -1) {
         break

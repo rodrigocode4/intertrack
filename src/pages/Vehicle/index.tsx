@@ -8,8 +8,10 @@ import GoBackButton from 'components/GoBackButton'
 import NotFound from 'components/NotFound'
 
 import { useParams, useLocation } from 'react-router-dom'
+import { usePlate } from 'utils/context'
+import getTrip from 'utils'
 
-type PositionsType = {
+type PositionType = {
   address: string
   datetime: number
   hodometro: number
@@ -34,9 +36,12 @@ const TripNotFound = NotFound
 const Vehicle = () => {
   const params = useParams() as { id: string }
   const { pathname } = useLocation()
+  const { setPlate } = usePlate()
+
   const [vehicle, setVehicle] = useState<VehicleType>()
-  const [positions, setPositions] = useState<Array<PositionsType>>()
   const [isNotFountVehicle, setIsNotFountVehicle] = useState(false)
+
+  const [trips, setTrips] = useState<Array<Array<PositionType>>>()
 
   const fetchData = async () => {
     try {
@@ -44,12 +49,15 @@ const Vehicle = () => {
       if (REACT_APP_API_URL) {
         // TODO - compor em duas funções
         const positionsRS = await fetch(`${REACT_APP_API_URL}${pathname}`)
-        const positionsJSON = (await positionsRS.json()) as Array<PositionsType>
-        setPositions(positionsJSON)
+        const positionsJSON = (await positionsRS.json()) as Array<PositionType>
+        //setPositions(positionsJSON)
+        const trips = getTrip(positionsJSON)
+        setTrips(trips)
 
         const vehicleRS = await fetch(`${REACT_APP_API_URL}/${params.id}`)
         const vehicleJSON = (await vehicleRS.json()) as VehicleType
         setVehicle(vehicleJSON)
+        setPlate(vehicleJSON.name)
       }
     } catch (error) {
       setIsNotFountVehicle(true)
@@ -60,6 +68,9 @@ const Vehicle = () => {
     fetchData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const isTripValid = (): boolean =>
+    trips !== undefined && trips[0] !== undefined && trips[0].length > 0
 
   return (
     <>
@@ -78,13 +89,18 @@ const Vehicle = () => {
         </S.WrapperTitle>
       </S.Header>
       <S.Main>
-        {positions !== undefined && <TripList positions={positions} />}
-        {positions?.length == 0 && (
-          <TripNotFound message="Nenhuma viagem encontrada!" />
+        {isTripValid() ? (
+          <TripList trips={trips} />
+        ) : (
+          !isNotFountVehicle && (
+            <TripNotFound message="Nenhuma viagem encontrada!" />
+          )
         )}
+
         {isNotFountVehicle && (
           <VehicleNotFound message="Veículo não encontrado!" />
         )}
+        {console.log(trips)}
       </S.Main>
       <Footer />
     </>

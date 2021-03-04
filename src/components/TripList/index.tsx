@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import * as S from './styled'
 import TripItem from 'components/TripItem'
-import getTrip from 'utils'
 
 type Position = {
   address: string
@@ -15,22 +14,16 @@ type Position = {
 }
 
 type Props = {
-  positions: Array<Position>
+  trips: Array<Array<Position>> | undefined
 }
 
-const TripList: React.FC<Props> = ({ positions }) => {
-  const [trips, setTrips] = useState<Array<Array<Position>>>()
-
-  useEffect(() => {
-    const trips = getTrip(positions)
-    setTrips(trips)
-  }, [positions])
-
+const TripList: React.FC<Props> = ({ trips }) => {
   return (
     <>
-      {positions.length == 0 ? null : (
-        <S.UL>
+      {trips?.length === 0 ? null : (
+        <S.UL data-cy="trip-list">
           {trips?.map((trip: Array<Position>, index) => {
+            if (trip.length < 1) return null
             const firstPosition: Position = trip[0]
             const lastPosision: Position = trip[trip.length - 1]
             return (

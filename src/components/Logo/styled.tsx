@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
-export const WrapperLinkedLogo = styled(Link)`
+export const WrapperLinkedLogo = styled.a`
   text-decoration: none;
 `
 

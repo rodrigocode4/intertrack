@@ -17,6 +17,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "typeRoots": ["src/@types"],
+    "types": ["cypress"]
   },
   "include": ["src"]
 }

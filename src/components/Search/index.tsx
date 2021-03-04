@@ -47,8 +47,9 @@ const Search = () => {
         placeholder="Pesquisar placa..."
         value={plateNumber}
         onChange={handleChange}
+        data-cy="search-input"
       />
-      <S.SearchButton onClick={handleClick}>
+      <S.SearchButton data-cy="search-button" onClick={handleClick}>
         <S.SearchButtonIcon />
       </S.SearchButton>
     </S.Form>
